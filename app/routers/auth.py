@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from app.schemas.user import UserSchema
 
 router = APIRouter(
     prefix="/",
@@ -8,13 +9,13 @@ router = APIRouter(
 @router.post(
     "/login"
 )
-async def login():
+async def login(user: UserSchema):
     ...
 
 @router.post(
     "/register"
 )
-async def register():
+async def register(user: UserSchema):
     ...
 
 @router.post(

@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from app.schemas.user import UserSchema
 
 router = APIRouter(
     prefix="/admin",
@@ -10,7 +11,7 @@ router = APIRouter(
     "/users",
     tags=["admin"],
 )
-async def get_users():
+async def get_users(user: UserSchema) -> list[UserSchema]:
     ...
 
 @router.post(
@@ -39,26 +40,4 @@ async def deposit():
     tags=["balance"],
 )
 async def withdraw():
-    ...
-
-# Действия с инструментами (список инструментов, добалвение инструмента, удаление инструмента)
-@router.get(
-    "/instruments",
-    tags=["instruments"],
-)
-async def get_instruments():
-    ...
-
-@router.post(
-    "/add-instrument",
-    tags=["instruments"],
-)
-async def add_instrument():
-    ...
-
-@router.post(
-    "/delete-instrument",
-    tags=["instruments"],
-)
-async def delete_instrument():
     ...
