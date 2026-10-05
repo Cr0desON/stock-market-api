@@ -1,43 +1,50 @@
 from fastapi import APIRouter
-from app.schemas.user import UserSchema
 
 router = APIRouter(
-    prefix="/admin",
+    prefix="/api/v1/admin",
     tags=["admin"],
 )
 
-# Дейтисвия с пользователями (список пользовтелей, удаление пользователя)
-@router.get(
-    "/users",
-    tags=["admin"],
+@router.delete(
+    "/user/{user_id}",
+    summary="Delete User",
 )
-async def get_users(user: UserSchema) -> list[UserSchema]:
+async def delete_user():
     ...
 
 @router.post(
-    "/delete-user"
+    "/instrument",
+    summary="Add Instrument",
 )
-async def delete():
+async def add_instrument():
     ...
 
-# Действия с балансом (список балансов, пополнение баланаса, списание с баланса)
-@router.get(
-    "/balances",
-    tags=["balance"],
+@router.delete(
+    "/instrument/{ticker}",
 )
-async def get_balances():
-    ...
-
-@router.post(
-    "/deposit",
-    tags=["balance"],
-)
-async def deposit():
+async def delete_instrument():
     ...
 
 @router.post(
-    "/withdraw",
+    "/balance/deposit",
+    summary="Deposit",
     tags=["balance"],
 )
-async def withdraw():
+async def balance_deposit():
+    ...
+
+@router.post(
+    "/balance/withdraw",
+    summary="Withdraw",
+    tags=["balance"],
+)
+async def balance_withdraw():
+    ...
+
+@router.delete(
+    "/user/{user_id}",
+    summary="Delete User",
+    tags=["user"],
+)
+async def delete_user():
     ...
