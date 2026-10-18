@@ -1,7 +1,8 @@
-from enum import Enum
+from enum import StrEnum
+
 from pydantic import BaseModel, UUID4, Field
 
-class UserRole(str, Enum):
+class UserRole(StrEnum):
     user = "USER"
     admin = "ADMIN"
 

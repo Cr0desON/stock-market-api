@@ -1,6 +1,7 @@
 from fastapi import APIRouter
+
 from app.schemas.all import TransactionSchema, InstrumentSchema
-from app.schemas.user import UserSchema
+from app.schemas.user import UserSchema, NewUserSchema
 
 router = APIRouter(
     prefix="/api/v1/public",
@@ -11,7 +12,7 @@ router = APIRouter(
     "/register",
     summary="Register",
 )
-async def register_user(user: UserSchema) -> list[UserSchema]:
+async def register_user(newUser: NewUserSchema) -> list[NewUserSchema]:
     ...
 
 @router.get(

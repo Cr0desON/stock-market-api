@@ -1,6 +1,8 @@
-from fastapi import FastAPI
-from app.routers import public, balance, order, admin
 import uvicorn
+from fastapi import FastAPI
+
+from app.routers import public, balance, order, admin
+
 app = FastAPI()
 
 app.include_router(public.router)
