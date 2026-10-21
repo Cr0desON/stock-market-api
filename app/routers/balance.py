@@ -9,5 +9,5 @@ router = APIRouter(
     "/balance",
     summary="Get Balances"
 )
-async def get_balances():
+async def get_balances(authorization: str):
     ...
